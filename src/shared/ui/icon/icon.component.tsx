@@ -2,7 +2,6 @@ import { Suspense, lazy } from 'react'
 
 const Icons = {
   // icon: lazy(() => import('@assets/icons/icon.svg?react')),
-  favicon: lazy(() => import('@assets/icons/favicon.svg?react')),
   profile: lazy(() => import('@assets/icons/profile.svg?react')),
 } as const
 

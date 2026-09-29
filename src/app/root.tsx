@@ -5,7 +5,7 @@ import type { Route } from './+types/root'
 
 import './app.css'
 
-export const links: Route.LinksFunction = () => [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }]
+export const links: Route.LinksFunction = () => [{ rel: 'icon', href: '/favicon.png' }]
 
 export function Layout(props: React.PropsWithChildren) {
   const { children } = props
