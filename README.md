@@ -1,87 +1,52 @@
-# Welcome to React Router!
+# Как открыть проект
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Инструкция для Windows. Git устанавливать не нужно.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Перед началом
 
-## Features
+1. Установите Node.js 22 LTS или новее с [официального сайта](https://nodejs.org/). Выберите установщик для Windows и оставьте настройки по умолчанию. npm установится вместе с Node.js.
+2. Скачайте проект: откройте [страницу проекта на GitHub](https://github.com/Sayu-ww/test-green-api), нажмите зелёную кнопку **Code**, затем **Download ZIP**.
+3. Найдите скачанный ZIP-файл, нажмите на нём правой кнопкой мыши и выберите **Извлечь все...**. Запускать проект прямо из ZIP-файла нельзя.
+4. Откройте распакованную папку. Её название может быть любым. Найдите внутри файлы `package.json` и `start.bat`: это и есть нужная папка проекта.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Способ 1: запустить файл
 
-## Getting Started
+Дважды щёлкните `start.bat` в папке проекта. Откроется чёрное окно: оно проверит Node.js, установит необходимые файлы при первом запуске, соберёт проект и запустит production-билд.
 
-### Installation
+Когда в окне появится адрес, например `http://localhost:4173/`, откройте его в браузере. Если показан другой адрес, используйте его. Не закрывайте чёрное окно, пока пользуетесь проектом.
 
-Install the dependencies:
+## Способ 2: ввести команды вручную
 
-```bash
-npm install
-```
+Если не хотите запускать `start.bat`, выполните те же действия вручную:
 
-### Development
+1. Откройте папку проекта, в которой находятся `package.json` и `start.bat`.
+2. Щёлкните по адресной строке Проводника, введите `powershell` и нажмите Enter. Откроется окно PowerShell в нужной папке.
+3. Введите первую команду и нажмите Enter:
 
-Start the development server with HMR:
+   ```powershell
+   npm install
+   ```
 
-```bash
-npm run dev
-```
+4. Когда команда завершится, соберите проект:
 
-Your application will be available at `http://localhost:5173`.
+   ```powershell
+   npm run build
+   ```
 
-## Building for Production
+5. Запустите собранный проект:
 
-Create a production build:
+   ```powershell
+   npm start
+   ```
 
-```bash
-npm run build
-```
+Откройте в браузере адрес, который появится в окне PowerShell. Окно должно оставаться открытым, пока работает проект.
 
-## Deployment
+## Если что-то пошло не так
 
-### Docker Deployment
+- **Сообщение, что `node` или `npm` не найдены.** Установите Node.js, закройте и заново откройте окно запуска.
+- **Страница не открывается.** Убедитесь, что чёрное окно или PowerShell всё ещё открыто, и используйте адрес, показанный именно в этом окне.
+- **Страница открылась, но данных нет.** Возможно, приложению недоступен сервер с данными. Обратитесь к человеку, который прислал вам ссылку на проект.
 
-To build and run using Docker:
+Чтобы остановить проект, нажмите `Ctrl+C` в окне запуска.
 
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Для macOS или Linux вместо `start.bat` запустите `bash ./start.sh` из папки проекта. Ручной запуск выполняется теми же командами в терминале.
