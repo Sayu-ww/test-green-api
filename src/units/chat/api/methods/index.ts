@@ -1,6 +1,7 @@
 export { DeleteNotification, type DeleteNotificationResult } from './delete-notification.api'
 export { GetChatHistory, type ChatHistoryMessage, type GetChatHistoryPayload } from './get-chat-history.api'
 export { GetChats, type ChatInfo } from './get-chats.api'
+export { GetMessage, type GetMessagePayload } from './get-message.api'
 export {
   ReceiveNotification,
   type GreenApiNotification,

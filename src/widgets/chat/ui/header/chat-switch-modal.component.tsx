@@ -25,6 +25,7 @@ export function ChatSwitchModal(props: Props) {
           <SharedUi.Input
             placeholder="79123456789"
             type="text"
+            requeued
             value={phone}
             onChange={(event) => onPhoneChange(event.target.value)}
             className="w-full"

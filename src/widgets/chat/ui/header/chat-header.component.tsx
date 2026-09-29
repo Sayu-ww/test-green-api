@@ -1,7 +1,7 @@
 import { SharedUi } from '@shared'
 
 type Props = {
-  phone: string
+  phone: string | undefined
   onOpenModal: () => void
 }
 

@@ -3,6 +3,8 @@ import { ChatService } from '@units/chat'
 
 export type GreenApiNotification = {
   typeWebhook: string
+  chatId?: string
+  idMessage?: string | number
   senderData?: {
     chatId?: string
   }

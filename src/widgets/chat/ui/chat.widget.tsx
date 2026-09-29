@@ -1,7 +1,6 @@
 import { ChatApi, ChatService } from '@units/chat'
 import { useEffect, useRef, useState } from 'react'
-
-import { ChatConversation, ChatHeader, ChatSwitchModal } from './ui'
+import { ChatUi } from '..'
 
 const normalizePhone = (value: string) => value.replace(/\D/g, '')
 const getChatId = (chat: ChatApi.Methods.ChatInfo) =>
@@ -28,7 +27,7 @@ export function ChatWidget() {
   const { data, isError: isHistoryError } = ChatService.Queries.useChatHistory(activeChatId)
   const notificationQuery = ChatService.Queries.useReceiveNotification()
   const {
-    mutate: deleteNotification,
+    mutateAsync: deleteNotification,
     isPending: isDeletingNotification,
     isError: isDeleteNotificationError,
   } = ChatService.Mutations.useDeleteNotificationMutation()
@@ -43,10 +42,14 @@ export function ChatWidget() {
     }
 
     processedReceiptId.current = notification.receiptId
-    deleteNotification({
-      receiptId: notification.receiptId,
-      chatId: notification.body.senderData?.chatId,
-    })
+
+    void (async () => {
+      try {
+        await deleteNotification({ receiptId: notification.receiptId })
+      } catch {
+        return
+      }
+    })()
   }, [deleteNotification, isDeletingNotification, notificationQuery.data])
 
   const messages = [...(data ?? [])]
@@ -114,9 +117,9 @@ export function ChatWidget() {
   return (
     <>
       <main className="bg-primary flex max-h-screen min-h-dvh flex-col px-4 py-5 text-stone-100 sm:px-8 sm:py-8">
-        <ChatHeader phone={phone ?? ''} onOpenModal={handleOpenPhoneModal} />
+        <ChatUi.Header.ChatHeader phone={phone} onOpenModal={handleOpenPhoneModal} />
 
-        <ChatConversation
+        <ChatUi.ChatConversation
           messages={messages}
           draft={draft}
           error={
@@ -136,7 +139,7 @@ export function ChatWidget() {
         />
       </main>
 
-      <ChatSwitchModal
+      <ChatUi.Header.ChatSwitchModal
         isOpen={isPhoneModalOpen}
         phone={nextPhone}
         error={selectionError}

@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { ChatService } from '@units/chat'
-import { Methods } from '@units/chat/api'
+import { ChatApi, ChatService } from '@units/chat'
 
 export const receiveNotificationQueryKey = (idInstance: number) =>
   ['chat', 'notifications', idInstance] as const
@@ -11,7 +10,7 @@ export const useReceiveNotification = () => {
 
   return useQuery({
     queryKey: receiveNotificationQueryKey(idInstance),
-    queryFn: () => Methods.ReceiveNotification(),
+    queryFn: () => ChatApi.Methods.ReceiveNotification(),
     enabled: Boolean(idInstance && apiTokenInstance),
     refetchInterval: (query) => (query.state.data ? false : 250),
   })

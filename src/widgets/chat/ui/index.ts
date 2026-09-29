@@ -1,3 +1,5 @@
 export { ChatConversation } from './chat-conversation.component'
-export { ChatHeader } from './chat-header.component'
-export { ChatSwitchModal } from './chat-switch-modal.component'
+export { ChatWidget } from './chat.widget'
+export * as Header from './header'
+export { ChatHeader } from './header/chat-header.component'
+export { ChatSwitchModal } from './header/chat-switch-modal.component'

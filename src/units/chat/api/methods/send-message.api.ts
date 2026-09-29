@@ -8,7 +8,7 @@ export type Payload = {
 }
 
 type PostMessageResponse = {
-  idMessage: number
+  idMessage: string | number
 }
 
 export async function postSendMessage(payload: Payload): Promise<PostMessageResponse> {
