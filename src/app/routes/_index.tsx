@@ -1,11 +1,9 @@
-import { SharedUi } from '@shared'
+import { AuthFormUi } from '@widgets/auth-form'
 
-export default function IndexRoute() {
+export default function AuthPage() {
   return (
-    <div className="flex h-dvh flex-col items-center justify-center p-4">
-      <SharedUi.Icon name="favicon" className="mb-4 size-20" />
-      <h1>Welcome to the Index Route</h1>
-      <p>This is the main landing page of the application.</p>
-    </div>
+    <section className="bg-primary flex min-h-screen items-center justify-center">
+      <AuthFormUi.AuthForm />
+    </section>
   )
 }
